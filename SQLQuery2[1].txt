@@ -1,0 +1,244 @@
+--kpi  what is the total sales ?
+select SUM(sales) AS SALES  FROM orders_copy
+---------------------------------------------------------------------------------------------------------------------------------
+---what is the hightest  region in sales?
+select SUM(ORD.sales) AS SALES  ,LOC.Region from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.Region
+-------------------------------------------------------------------------------
+---what is the hightest  satate in sales?
+select TOP 10 LOC.State , SUM(ORD.sales) AS SALES  from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.State
+ORDER BY SALES DESC 
+-------------------------------------------------------------------------------
+-------what is the hightest CATEGORY in SALES&Profit  ?
+select prd.Category , SUM(ORD.Sales) AS SALES ,SUM(ORD.Profit) AS profit 
+from dbo.orders_copy as ORD 
+inner join dbo.Products prd
+on ORD.Product_ID=prd.Product_ID
+GROUP BY prd.Category
+ORDER BY SALES DESC
+-------------------------------------------------------------------------------
+-----what is the hightest year in profit?
+select  sum(profit), year(Ship_daTE)  FROM dbo.Orders 
+group by year(Ship_daTE) 
+order by year(Ship_daTE) desc
+-------------------------------------------------------------------------------
+---what is the hightest  region in profit?
+select SUM(ORD.Profit) AS profit  ,LOC.Region from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.Region
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+----what is the hightest  city in sales? 
+select  LOC.city , SUM(ORD.sales) AS SALES from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.city
+ORDER BY SALES DESC
+-----------------------------------------------------------
+---what is the hightest  satate in sales?
+select TOP 10 LOC.State , SUM(ORD.sales) AS SALES  from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.State
+ORDER BY SALES DESC 
+---------------------------------------------------------------------------------
+--what is the hightest  region in profit?
+select TOP 10 LOC.State , SUM(ORD.Profit) AS profit from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.State
+ORDER BY profit DESC
+-----------------------------------------------------------------------------------
+----- product table
+----- what is the total products?
+select distinct count(Product_ID)   from dbo.Products 
+
+-----------------------------------------------------------------------------------
+-----what is the hightest year in profit?
+select  sum(profit), year(Ship_daTE)  FROM dbo.Orders 
+group by year(Ship_daTE) 
+order by year(Ship_daTE) desc
+
+-----------------------------------------------------------------------------------
+-------what is the hightest CATEGORY in SALES&Profit  ?
+select prd.Category , SUM(ORD.Sales) AS SALES ,SUM(ORD.Profit) AS profit 
+from dbo.orders_copy as ORD 
+inner join dbo.Products prd
+on ORD.Product_ID=prd.Product_ID
+GROUP BY prd.Category
+ORDER BY SALES DESC
+-----------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+-------what is the hightest SUBCATEGORY in SALES&Profit  ?
+select TOP 7 prd.Sub_Category ,SUM(ORD.Profit) as profit, SUM(ORD.Sales) AS SALES 
+from dbo.orders_copy as ORD 
+inner join dbo.Products prd
+on ORD.Product_ID=prd.Product_ID
+GROUP BY prd.Sub_Category
+ORDER BY SALES desc,SUM(ORD.Profit) DESC
+-----------------------------------------------------------------------------------
+--what is the number of TOTAL CUSTOMERS ?
+select distinct count(Customer_ID)  FROM dbo.Customers
+
+-----------------------------------------------------------------------------------
+--------------ORDERS TABLE 
+--------------what is the number of  total orders ?
+select distinct count(Order_ID)  FROM dbo.Orders
+----------what is the  total profit?
+select sum(Profit)  FROM dbo.Orders
+----------kpi totalwhat is the  total  sales?
+select sum(Sales)  FROM dbo.Orders
+---------- years 
+select  distinct year(Ship_daTE)  FROM dbo.Orders 
+-----------------------------------------------------------------------------------
+-----what is the hightest year in sales?
+select  sum(Sales), year(Ship_daTE)  FROM dbo.Orders 
+group by year(Ship_daTE) 
+order by year(Ship_daTE) desc
+-----------------------------------------------------------------------------------
+-----what is the hightest year in profit?
+select  sum(profit), year(Ship_daTE)  FROM dbo.Orders 
+group by year(Ship_daTE) 
+order by year(Ship_daTE) desc
+-----------------------------------------------------------------------------------
+--what is the hightest Ship_Mode in profit?
+select  sum(profit), Ship_Mode FROM dbo.Orders 
+group by Ship_Mode 
+order by sum(profit) desc 
+-----------------------------------------------------------------------------------
+--what is the hightest Ship_Mode in sales?
+select  sum(Sales), Ship_Mode FROM dbo.Orders 
+group by Ship_Mode 
+order by sum(Sales) desc 
+-----------------------------------------------------------------------------------
+--what is the hightest Segment in sales?
+select  sum(Sales), Segment FROM dbo.Orders 
+group by Segment 
+order by sum(Sales) desc
+ -----------------------------------------------------------------------------------
+--what is the hightest Segment in profit?
+ select  sum(Profit), Segment FROM dbo.Orders 
+group by Segment 
+order by sum(Profit) desc
+-----------------------------------------------------------------------------------
+--what is the hightest Segment in Quantity?
+ select count(Quantity), Segment FROM dbo.Orders 
+group by Segment 
+order by count(Quantity) desc
+-----------------------------------------------------------------------------------
+--what is the hightest Ship_Mode in Quantity?
+select count(Quantity), Ship_Mode FROM dbo.Orders 
+group by Ship_Mode 
+order by count(Quantity) desc
+-----------------------------------------------------------------------------------\
+-----what is the hightest year in Quantity?
+select count(Quantity), year(Ship_daTE) FROM dbo.Orders 
+group by  year(Ship_daTE)
+order by count(Quantity) desc
+-----------------------------------------------------------------------------------
+--what is the hightest Region in Quantity?
+select  count(ORD.Quantity) ,LOC.Region from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY LOC.Region 
+-----------------------------------------------------------------------------------
+--Quantity by Region
+select  top 10 loc.State,count(ord.Quantity) from dbo.orders_copy as ORD 
+inner join dbo.Location LOC
+on ORD.Postal_Code=LOC.Postal_Code
+GROUP BY loc.State
+order by count(ord.Quantity) desc
+----------------------------------------------------------------------------------- 
+--Quantity by subcategory
+select TOP 7 prd.Sub_Category , count(ORD.Quantity) AS Quantity 
+from dbo.orders_copy as ORD 
+inner join dbo.Products prd
+on ORD.Product_ID=prd.Product_ID
+GROUP BY prd.Sub_Category
+ORDER BY Quantity  DESC
+-----------------------------------------------------------------------------------
+--avg Quantity by category
+select  prd.Category , avg(ORD.Quantity) AS Quantity 
+from dbo.orders_copy as ORD 
+inner join dbo.Products prd
+on ORD.Product_ID=prd.Product_ID
+GROUP BY prd.Category
+ORDER BY Quantity  DESC
+-----------------------------------------------------------------------------------
+--Discount by Segment
+ select avg(Discount) ,SUM(Profit)as  Sales_bef_disc, SUM(Profit*Discount) AS SALES_AF_DIS , Segment FROM dbo.Orders 
+ group by Segment 
+ order by SALES_AF_DIS
+-----------------------------------------------------------------------------------
+---------------------------------------------
+-----customers distribution by Category
+select  prd.Category ,count(Customer_ID)
+from dbo.Products as prd 
+inner join dbo.orders_copy ord
+on ORD.Product_ID=prd.Product_ID
+GROUP BY prd.Category 
+---- 
+select  prd.Region ,count(Customer_ID)
+from dbo.Location as prd 
+inner join dbo.orders_copy ord
+on ORD.Postal_Code=prd.Postal_Code
+GROUP BY prd.Region 
+-----------------------------------------------------------------------------------
+select * from dbo.Products
+---------------------------------------------
+--what is avg SHIP DURATION BY REGION?
+WITH CTE5 AS (
+SELECT 
+    AVG(CAST(DATEDIFF(DAY, Order_Date, Ship_Date) AS float)) AS AvgDaysDifference, 
+    LOC.Region 
+FROM orders_copy ORD
+INNER JOIN dbo.Location AS LOC
+ON ORD.Postal_Code = LOC.Postal_Code
+GROUP BY LOC.Region
+)
+SELECT AVG(AvgDaysDifference) FROM CTE5
+---------------------------------------------
+---what is avg sales per customer?
+with cte as (
+SELECT   Customer_ID, sum(Sales) avg_sales_per_customer  FROM Orders  
+group by Customer_ID
+)
+select avg(avg_sales_per_customer) as dfff from cte
+---------------------------------------------
+---what is avg Quantity per customer?
+with cte2 as (
+SELECT  distinct Order_ID, sum(Quantity) avg_Quantity_per_customer  FROM Orders  
+group by Order_ID
+)
+select avg(avg_Quantity_per_customer) as avg_Quantity_per_customer
+ from cte2
+---------------------------------------------
+---what products by Segment
+select  ord.Segment ,count(Product_ID)
+from dbo.Location as prd 
+inner join dbo.orders_copy ord
+on ORD.Postal_Code=prd.Postal_Code
+GROUP BY ord.Segment  
+--------------
+---avg price per product 
+with cte4 as (
+SELECT   Product_ID, avg(Sales/Quantity) avg_price_per_product  FROM Orders  
+group by Product_ID
+)
+select avg(avg_price_per_product) as avg_price_per_product from cte4 
+-----------------------
+select * from orders_copy 
+
+
+
+
+
+
