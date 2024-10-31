@@ -14,14 +14,14 @@ This project analyzes the performance of an online store in the US over four yea
   - **Locations**: Postal Code, City, State, Region, CountryRegion  
 
 ## 2. Data Model  
-- **Data Model Diagram**: ![Data Model Diagram](Screenshot 2024-10-31 051953.png)  
+- **Data Model Diagram**: ![Data Model Diagram](image_2024-10-31_052022411.png)  
 
 ## 3. Data Cleaning & Preparation  
-- **Python Notebook**: [Data Cleaning Notebook](python\DEPI FP.ipynb)  
+- **Python Notebook**: [Data Cleaning Notebook]([DEPI FP(1).ipynb](http://localhost:8888/lab/tree/DEPI%20FP.ipynb))  
 - **Tasks**: Missing data handling, data formatting, removing duplicates, and outlier detection.  
 
 ## 4. Exploratory Data Analysis (EDA)  
-- **SQL Queries**: [SQL Queries](sql\SQLQuery2[1].txt)  
+- **SQL Queries**: [SQL Queries](SQLQuery2[1].txt)  
 - **Summarized Insights**:  
   1. **Location Analysis**: Analyzed total sales and profits by country, region, city, and state, identifying top-performing locations.  
   2. **Product Performance**: Explored sales and profit by product category and sub-category.  
@@ -29,12 +29,12 @@ This project analyzes the performance of an online store in the US over four yea
   4. **Time Trends**: Tracked sales, profit, and quantity sold year-over-year, revealing growth patterns and demand trends.  
   5. **Shipping Insights**: Examined sales and profit by shipping modes and average shipping duration by region.  
 
-## Dashboard Visualizations  
+## 5. Dashboard Visualizations  
 We used Tableau to create our dashboards:  
-- **Sales Dashboard**: ![Sales Dashboard](dashboard/1730105243371.jpeg)  
-- **Products Dashboard**: ![Products Dashboard](dashboard/1730105242959.jpeg)  
-- **Customers Dashboard**: ![Customers Dashboard](dashboard/1730105243117.jpeg)  
-- **Region Dashboard**: ![Region Dashboard](dashboard/1730105243319.jpeg)  
+- **Sales Dashboard**: ![Sales Dashboard](1730105243371.jpeg)  
+- **Products Dashboard**: ![Products Dashboard](1730105242959.jpeg)  
+- **Customers Dashboard**: ![Customers Dashboard](1730105243117.jpeg)  
+- **Region Dashboard**: ![Region Dashboard](1730105243319.jpeg)  
 
 ## Key Insights and Recommendations  
 ### Sales and Profit Trends  
@@ -81,7 +81,21 @@ We used Tableau to create our dashboards:
    - Increase marketing efforts for Furniture and Office Supplies with bundled deals and discounts.  
 
 8. **Refine Product Offerings by Segment**:  
-   - Tailor recommendations and promotions based on the preferences of each customer segment.  
+   - Tailor recommendations and promotions based on the preferences of each customer segment.
+  
+## Conclusion
+This Store Sales Analysis project provides valuable insights into the performance of an online store, highlighting key growth areas and opportunities for improvement. The findings can guide strategic decisions to enhance sales, profit, and customer satisfaction.
+
+## Feedback and Contributions
+We welcome any feedback or suggestions for improving this analysis. If you have any contributions or ideas, feel free to open an issue or submit a pull request.
+
+## Contact Information
+For any inquiries, please contact:
+- **Alaa Kotb**:alaasekoo7@gmail,com
 
 
+Connect with us on linkedin (https://www.linkedin.com/in/alaa-kotb-5359a42a4/)
+## Acknowledgments
+We would like to thank Eng. Aya Alghali for her guidance and support throughout this project.
 
+  
