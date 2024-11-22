@@ -91,11 +91,10 @@ We welcome any feedback or suggestions for improving this analysis. If you have 
 
 ## Contact Information
 For any inquiries, please contact:
-- **Alaa Kotb**:alaasekoo7@gmail,com
-- **Abdelrhman Al-Sharkawi**:abdelrhmansharkawi@gmail,com
+- **Abdelrhman Al-Sharkawi**: abdelrhmansharkawi@gmail.com
 
 
-Connect with us on linkedin (https://www.linkedin.com/in/alaa-kotb-5359a42a4/)
+Connect with us on linkedin (linkedin.com/in/abdelrhmanwael)
 
 ## Acknowledgments
 We would like to thank Eng. Aya Alghali for her guidance and support throughout this project.
