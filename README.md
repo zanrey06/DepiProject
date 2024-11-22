@@ -94,7 +94,7 @@ For any inquiries, please contact:
 - **Abdelrhman Al-Sharkawi**: abdelrhmansharkawi@gmail.com
 
 
-Connect with us on linkedin (linkedin.com/in/abdelrhmanwael/)
+Connect with us on linkedin (https://www.linkedin.com/in/abdelrhmanwael)
 
 ## Acknowledgments
 We would like to thank Eng. Aya Alghali for her guidance and support throughout this project.
